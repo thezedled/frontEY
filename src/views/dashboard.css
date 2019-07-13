@@ -1,0 +1,83 @@
+.dashboard{
+    display: flex;
+    flex-direction: row;
+    padding: 100px;
+}
+
+.personal__info--card{
+   background-color: white;
+    border-radius: 8px;
+    width: 20%;
+    position: relative;
+    padding: 100px 16px 40px;
+    box-shadow:0 4px 5px 0 rgba(48,48,49,0.14),0 1px 10px 0px rgba(48,48,49,0.12),0 2px 4px 0 rgba(48,48,49,0.2);
+}
+
+.personal__info--card img{
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    position: absolute;
+    top: -150px;
+    right: 150px;
+    transform: translate(50%,50%);
+}
+
+.personal__info--data p:last-child{
+    font-size: 12px;
+    font-style: italic;
+}
+
+.personal__info--data p:first-child{
+    margin-bottom: 4px;
+    font-size: 18px;
+    color: #282c34;
+}
+.last__appointment--card{
+    color: white;
+    padding:  16px;
+    width: 48%;
+    height: fit-content;
+    border-radius: 8px;
+    background: rgb(11,139,194);
+    background: linear-gradient(295deg, rgba(11,139,194,1) 0%, rgba(110,91,228,1) 100%);
+    box-shadow:0 1px 1px 0 rgba(48,48,49,0.14),0 2px 1px -1px rgba(48,48,49,0.12),0 1px 3px 0 rgba(48,48,49,0.2);
+    cursor: pointer;
+}
+.last__appointment--card i:first-child{
+    font-size: 20px;
+}
+.last__appointment--card:hover{
+    box-shadow:0 4px 5px 0 rgba(48,48,49,0.14),0 1px 10px 0px rgba(48,48,49,0.12),0 2px 4px 0 rgba(48,48,49,0.2);
+}
+.last__results--card{
+    padding:  16px;
+    color: white;
+    height: fit-content;
+    width: 48%;
+    border-radius: 8px;
+    background: rgb(11,139,194);
+    background: linear-gradient(131deg, rgba(11,139,194,1) 0%, rgba(43,92,179,1) 100%);
+    box-shadow:0 1px 1px 0 rgba(48,48,49,0.14),0 2px 1px -1px rgba(48,48,49,0.12),0 1px 3px 0 rgba(48,48,49,0.2);
+    cursor: pointer;
+}
+.last__results--card:hover{
+    box-shadow:0 4px 5px 0 rgba(48,48,49,0.14),0 1px 10px 0px rgba(48,48,49,0.12),0 2px 4px 0 rgba(48,48,49,0.2);
+}
+.last__results--card div:first-child div{
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+}
+.last__results--card div:first-child div p{
+    margin-bottom: 3px;
+}
+
+.last__values--container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    margin-left: 100px;
+}
+
