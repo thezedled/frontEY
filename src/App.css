@@ -1,5 +1,6 @@
 @import '~antd/dist/antd.css';
-
+@import './styles/newAppointment.css';
+@import './styles/navBar.css';
 
 .App {
   text-align: center;
@@ -50,4 +51,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+.main--container{
+  display: flex;
+  flex-direction: row;
 }

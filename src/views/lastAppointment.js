@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-import "./dashboard.css"
+import "../styles/dashboard.css"
 
 
 class LastAppointment extends PureComponent {
