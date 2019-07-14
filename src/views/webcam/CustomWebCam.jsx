@@ -56,7 +56,7 @@ class WebcamCapture extends React.Component {
         {this.state.showImage === true ? (
           <Fragment>
             <img src={this.state.imagen} alt="Logo" />
-            <button onClick={this.retry}>Retry</button>
+            <button onClick={this.retry}>Volver a tomar</button>
             <Button
               disabled={
                 isEmpty(this.props.inputDrName) === false &&

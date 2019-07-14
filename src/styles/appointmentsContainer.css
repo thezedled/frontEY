@@ -3,6 +3,7 @@
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
+    padding:90px 60px;
 }
 
 .appointments__container .last__appointment--card{
@@ -18,4 +19,17 @@
 
 .appointments__container .last__appointment--card div:first-child{
     flex-direction: column;
+}
+
+.appointments__container--bg h2{
+    font-size: 50px;
+    color: #282c34;
+    margin: 0 90px;
+    background-color: #ECF2F1;
+    width: 100%;
+    position: fixed;
+}
+
+.appointments__container svg{
+    z-index: 1;
 }
