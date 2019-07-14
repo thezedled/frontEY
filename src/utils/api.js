@@ -16,3 +16,13 @@ export function getPosts() {
   }
 
 
+  export function consulta(data) {
+    return axios.post("https://delivery-proud-mongoose.mybluemix.net/api/consulta", data);
+  }
+
+
+
+
+
+
+
