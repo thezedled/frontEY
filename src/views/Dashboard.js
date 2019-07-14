@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import PersonalInfo from "./PersonalInfo";
 import LastAppointment from "./lastAppointment";
 import LastResults from "./LastResults";
+import CustomCalendar from "./calendarSection/CustomCalendar";
 
 
 class Dashboard extends PureComponent {
@@ -10,15 +11,16 @@ class Dashboard extends PureComponent {
     return (
         <div className="dashboard">
             <PersonalInfo
-                weight={"20kg"}
+                weight={"20 kg"}
                 organDonor={true}
                 name={"Pedro"}
                 gender={"Masculino"}
-                height={"1.68"}
-                age={"20"}
+                height={"168 cm"}
+                age={"20 años"}
                 bloodType={"A+"}
                 imageURL="https://botlist.imgix.net/2635/c/submission1570rao3Hr-medium.jpg?auto=compress"
             />
+            <div className="cards__container">
             <div className="last__values--container" >
               <LastAppointment
                   date={"26 junio 2019"}
@@ -33,6 +35,14 @@ class Dashboard extends PureComponent {
                   parameter={"Colesterol"}
                   onClick={()=>{}}
               />
+            </div>
+              <div className="container__row space__between ">
+                <CustomCalendar   />
+                <div className="dashboard__buttons ">
+                  <button>Nueva consulta</button>
+                  <button>Nuevo Resultado</button>
+                </div>
+              </div>
             </div>
         </div>
   )
