@@ -12,12 +12,12 @@ class AppointmentDetail extends PureComponent {
   }
 
   componentWillMount() {
-    console.log("localStorage.getItem", localStorage.getItem("idComponent"));
+
 
     detail(localStorage.getItem("idComponent"))
       .then(res => {
         if (isNil(res) === false) {
-          console.log("res", res);
+
 
           this.setState({
             detail: res.data.result,
@@ -29,7 +29,6 @@ class AppointmentDetail extends PureComponent {
   }
 
   render() {
-    console.log();
 
     const {
       drName,

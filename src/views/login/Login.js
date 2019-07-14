@@ -53,7 +53,7 @@ class Login extends PureComponent {
           })
             .then(res => {
               history.push("/");
-              this.forceUpdate()
+              window.location.reload()
             })
           .catch(err => {
           console.log(err);
