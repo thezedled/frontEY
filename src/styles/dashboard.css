@@ -21,10 +21,10 @@
     width: 150px;
     height: 150px;
     border-radius: 150px;
-    position: absolute;
-    top: -150px;
-    right: 150px;
-    transform: translate(50%,50%);
+    /* position: absolute; */
+    /* top: -150px; */
+    /* right: 150px; */
+    transform: translate(50%,-50%);
 }
 
 .personal__info--data p:last-child{
@@ -104,4 +104,30 @@
 .last__appointment--card svg{
     margin-right: 8px;
     opacity: 0.3;
+}
+
+.dashboard__buttons button{
+    background-color: white;
+    border-radius: 4px;
+    border: solid 1px #0b8bc2;
+    color: #0b8bc2;
+    padding:16px 32px;
+    height: fit-content;
+    margin-top: 16px;
+}
+
+.dashboard__buttons button:hover{
+    background-color: #0b8bc2;
+    color:white;
+    border-radius: 8px;
+    border: solid 1px #0b8bc2;
+
+}
+
+.ant-fullcalendar{
+    background-color: white;
+}
+
+.ant-fullcalendar-header{
+    background-color: white;
 }

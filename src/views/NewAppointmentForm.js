@@ -47,29 +47,30 @@ class NewAppointmentForm extends PureComponent {
     return (
       <div>
         <div className="new__appointment--form">
-          <p>Dr Name</p>
+          <div>
+          <p>Nombre del Médico</p>
           <Input
-            placeholder="Doctor name"
+            placeholder="Nombre del Médico"
             allowClear
             onChange={(e, value) => {
               this.onChange(e);
             }}
           />
-          <p>Symptons</p>
+          <p>Síntomas</p>
           <TextArea
             onChange={(e, value) => {
               this.onChangeSymptons(e);
             }}
             rows={4}
           />
-          <p>Description</p>
+          <p>Diagnóstico</p>
           <TextArea
             onChange={(e, value) => {
               this.onChangeDescription(e);
             }}
             rows={4}
           />
-          <p>Medicines</p>
+          <p>Medicamentos</p>
           {this.props.medicines.map((medicine, index) => {
             return (
               <div
@@ -77,9 +78,9 @@ class NewAppointmentForm extends PureComponent {
                 key={index}
                 id={medicine.medicine}
               >
-                <p>Name</p>
+                <p>Nombre</p>
                 <Input
-                  placeholder="Doctor name"
+                  placeholder="Nombre del medicamento"
                   allowCleinputSymptonsar
                   onChange={(e, value) => {
                     this.onChangeMedicina(e);
@@ -88,6 +89,7 @@ class NewAppointmentForm extends PureComponent {
               </div>
             );
           })}
+            <p>Agrega una foto de la receta 0para dar más detalles</p>
           <Button
           disabled={
             isEmpty(this.state.inputDrName) === false &&
@@ -105,7 +107,7 @@ class NewAppointmentForm extends PureComponent {
           >
             Agregar Foto
           </Button>
-
+          </div>
           {this.state.openModal === true ? (
             <WebcamCapture
               inputDrName={this.state.inputDrName}
