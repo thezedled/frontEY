@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "../styles/dashboard.css"
 
 
+
 class LastAppointment extends PureComponent {
 
   render() {
