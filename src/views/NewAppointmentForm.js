@@ -70,7 +70,7 @@ class NewAppointmentForm extends PureComponent {
             }}
             rows={4}
           />
-          <p>Medicamentos</p>
+            <b><p>Medicamentos</p></b>
           {this.props.medicines.map((medicine, index) => {
             return (
               <div
@@ -89,7 +89,7 @@ class NewAppointmentForm extends PureComponent {
               </div>
             );
           })}
-            <p>Agrega una foto de la receta 0para dar más detalles</p>
+            <p>Agrega una foto de la receta para dar más detalles</p>
           <Button
           disabled={
             isEmpty(this.state.inputDrName) === false &&

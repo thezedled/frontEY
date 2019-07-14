@@ -64,3 +64,13 @@
     top: 93px;
     border-radius:8px;
 }
+
+.new__appointment--container h2{
+    font-size: 50px;
+    color: #282c34;
+    background-color: #ECF2F1;
+}
+
+.medicine__container{
+    margin-bottom: 30px;
+}
