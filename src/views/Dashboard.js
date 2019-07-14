@@ -71,8 +71,6 @@ class Dashboard extends PureComponent {
   }
 
   render() {
-
-    console.log('this.state.lab.fecha', typeof this.state.lab.fecha);
     
 
     return (
