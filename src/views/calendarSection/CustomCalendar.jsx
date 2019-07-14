@@ -71,7 +71,7 @@ render(){
     return(
 
 
-        <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4 }}>
+        <div style={{ width: 333, border: '1px solid #d9d9d9', borderRadius: 4 }}>
         <Calendar dateCellRender={this.dateCellRender}  fullscreen={false} onPanelChange={this.onPanelChange} />
       </div>
 
