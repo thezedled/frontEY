@@ -51,7 +51,7 @@ updatePathname = () => {
               <div className="nav-bar">
                 <ul>
                 <li><Link to={'/'}> <FontAwesomeIcon icon={faHome} size="2x"/> </Link></li>
-                <li><Link to={'/appointments'}> <FontAwesomeIcon icon={faCalendarCheck} size="2x"/>  </Link></li>
+                <li><Link to={'/appointments'} onClick={localStorage.removeItem('idComponent')} > <FontAwesomeIcon icon={faCalendarCheck} size="2x"/>  </Link></li>
                 <li><Link to={'/newAppointment'}> <FontAwesomeIcon icon={faCalendarPlus} size="2x"/>  </Link></li>
                 <li><Link to={'/medicines'}><FontAwesomeIcon icon={faPills} size="2x"/>  </Link></li>
                 <li><Link to={'/results'}><FontAwesomeIcon icon={faFolder} size="2x"/>  </Link></li>

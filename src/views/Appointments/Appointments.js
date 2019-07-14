@@ -19,7 +19,9 @@ class Appointments extends PureComponent {
     catalogs()
       .then(res => {
         if (isNil(res) === false) {
-          localStorage.setItem('idComponent', JSON.stringify(res.data.result._id));
+          console.log('res', res);
+          
+        
           this.setState({
             catalogs: res.data.result,
             loading: false
@@ -42,7 +44,7 @@ class Appointments extends PureComponent {
           <Link to="/appointmentDetail">
             <LastAppointment
               date={appointment.Fecha}
-              onClick={() => {}}
+              onClick={ async () => {  localStorage.setItem('idComponent', appointment._id) }}
               drName={appointment.Doctor}
               medicine={appointment.Medicamento}
               idComponent={appointment._id}
