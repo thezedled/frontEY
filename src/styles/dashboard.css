@@ -100,3 +100,8 @@
 .space__between{
     justify-content: space-between;
 }
+
+.last__appointment--card svg{
+    margin-right: 8px;
+    opacity: 0.3;
+}

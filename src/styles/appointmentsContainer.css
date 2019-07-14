@@ -1,0 +1,21 @@
+.appointments__container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.appointments__container .last__appointment--card{
+      width: 20%;
+      margin: 16px;
+      background: white;
+      border: solid 1px #A8DCD1;
+      color: #282c34;
+  }
+.appointments__container .last__appointment--card svg{
+    opacity: 0.1;
+}
+
+.appointments__container .last__appointment--card div:first-child{
+    flex-direction: column;
+}

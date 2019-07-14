@@ -1,7 +1,7 @@
 import React, { Component,  } from 'react';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import './App.css';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link, withRouter} from "react-router-dom";
 import "./index.css"
 import 'antd/dist/antd.css';
 import Dashboard from "./views/Dashboard";
@@ -10,6 +10,8 @@ import NewAppointment from "./views/NewAppointment";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faCalendarCheck, faCalendarPlus, faPills, faFolder, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import Login from "./views/login/Login"
+import AppointmentDetailContainer from "./views/AppointmentDetail/AppointmentDetailContainer"
+import AppointmentsContainer from "./views/Appointments/AppointmentsContainer"
 
 const URL_LOGIN = new RegExp("/login", "i");
 
@@ -18,10 +20,29 @@ export function selectedLogin(pathname){
 }
 
 class App extends Component {
-  state = {
-    collapsed: false,
-  };
+constructor(props){
+  super(props)
+this.state = {
+  pathname: window.location.pathname
+}}
+
+updatePathname = () => {
+  let oldPathname = this.state.pathname;
+  if( oldPathname ===  window.location.pathname) {
+    this.setState({
+      pathname: window.location.pathname
+    })
+  }
+}
+  componentWillMount() {
+    this.updatePathname()
+  }
+  componentWillUnmount() {
+    this.updatePathname()
+  }
   render() {
+
+
     const pathname = window.location.pathname;
     console.log(pathname);
     return (
@@ -44,6 +65,8 @@ class App extends Component {
             <Route exact path='/' component={Dashboard}/>
             <Route exact path='/newAppointment' component={NewAppointment}/>
             <Route exact path='/login' component={Login} />
+            <Route exact path='/appointmentDetail' component={AppointmentDetailContainer} />
+            <Route exact path='/appointments' component={AppointmentsContainer} />
           </Switch>
         </div>
         </Router>
@@ -51,7 +74,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
 
 
 

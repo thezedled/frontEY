@@ -2,8 +2,11 @@
 @import './styles/newAppointment.css';
 @import './styles/navBar.css';
 @import "./styles/login.css";
+@import "./styles/appointmentDetail.css";
+@import "./styles/appointmentsContainer.css";
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -55,4 +58,5 @@
 .main--container{
   display: flex;
   flex-direction: row;
+  background-color: #ECF2F1;
 }
