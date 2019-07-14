@@ -31,6 +31,18 @@ export function getPosts() {
   }
 
 
+  export function detail(data) {
+    return axios.get(`https://delivery-proud-mongoose.mybluemix.net/api/consultas/detalle/gora921128hdfnmr08/${data}/`);
+  }
+
+
+  export function login(data) {
+    return axios.post("https://delivery-proud-mongoose.mybluemix.net/api/login", data);
+  }
+
+  
+
+
 
 
 
