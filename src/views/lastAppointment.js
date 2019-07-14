@@ -9,7 +9,11 @@ import {  faPills, faUserMd  } from '@fortawesome/free-solid-svg-icons'
 class LastAppointment extends PureComponent {
 
   render() {
-    const {date, drName, medicine, onClick} = this.props
+    const {date, drName, medicine, onClick, idComponent} = this.props
+
+    console.log('idComponent', idComponent);
+    
+
     return (
         <div onClick={onClick} className="last__appointment--card">
           <i><p>{date}</p></i>

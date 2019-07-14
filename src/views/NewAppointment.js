@@ -1,8 +1,8 @@
-import React, {PureComponent} from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import {Input,Select} from "antd";
+import { Input, Select } from "antd";
 import NewAppointmentForm from "./NewAppointmentForm";
-
+import WebcamCapture from "./webcam/CustomWebCam";
 
 class NewAppointment extends PureComponent {
   constructor(props) {
@@ -12,22 +12,21 @@ class NewAppointment extends PureComponent {
     };
   }
 
-  addPhoto = () =>{
+  addPhoto = () => {};
 
-  };
-
-  addMedicine = () => {
-
-  };
+  addMedicine = () => {};
 
   render() {
     return (
-        <div>
-          <NewAppointmentForm addPhoto={this.addPhoto} addMedicine={this.addMedicine} medicines={this.state.medicines}/>
-        </div>
-    )
+      <div>
+        <NewAppointmentForm
+          addMedicine={this.addMedicine}
+          medicines={this.state.medicines}
+        />{" "}
+       
+      </div>
+    );
   }
 }
 
-
-export default NewAppointment
+export default NewAppointment;

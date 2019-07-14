@@ -44,7 +44,6 @@ updatePathname = () => {
 
 
     const pathname = window.location.pathname;
-    console.log(pathname);
     return (
         <Router>
         <div className="main--container">

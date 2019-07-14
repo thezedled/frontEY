@@ -1,53 +1,120 @@
-import React, {PureComponent} from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import PersonalInfo from "./PersonalInfo";
 import LastAppointment from "./lastAppointment";
 import LastResults from "./LastResults";
 import CustomCalendar from "./calendarSection/CustomCalendar";
-
+import { getPosts, ultimate, lab, calendar } from "../utils/api";
+import { isNullLiteral, isEmptyStatement } from "@babel/types";
+import isNil from "lodash/isNil";
+import isEmpty from 'lodash/isEmpty';
+import moment from "moment";
+import { Link } from "react-router-dom";
 
 class Dashboard extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: [],
+      ultimate: [],
+      lab: [],
+      calendar:[],
+      loading: true
+    };
+  }
+
+  componentDidMount() {
+    calendar()
+      .then(res => {
+        if (isNil(res) === false) {
+          this.setState({
+            calendar: res.data,
+            loading: false
+          });
+        }
+      })
+      .catch(err => console.log(err));
+
+
+    lab()
+      .then(res => {
+        if (isNil(res) === false) {
+          this.setState({
+            lab: res.data.result,
+            loading: false
+          });
+        }
+      })
+      .catch(err => console.log(err));
+
+    ultimate()
+      .then(res => {
+        if (isNil(res) === false) {
+          this.setState({
+            ultimate: res.data.result,
+            loading: false
+          });
+        }
+      })
+      .catch(err => console.log(err));
+
+    getPosts()
+      .then(res => {
+        if (isNil(res) === false) {
+          this.setState({
+            posts: res.data.result,
+            loading: false
+          });
+        }
+      })
+      .catch(err => console.log(err));
+  }
+
   render() {
+
+    console.log('this.state.lab.fecha', typeof this.state.lab.fecha);
+    
+
     return (
-        <div className="dashboard">
-            <PersonalInfo
-                weight={"20 kg"}
-                organDonor={true}
-                name={"Pedro"}
-                gender={"Masculino"}
-                height={"168 cm"}
-                age={"20 años"}
-                bloodType={"A+"}
-                imageURL="https://botlist.imgix.net/2635/c/submission1570rao3Hr-medium.jpg?auto=compress"
+      <div className="dashboard">
+        <PersonalInfo
+          weight={`${this.state.posts.peso} kg`}
+          organDonor={true}
+          name={this.state.posts.nombre}
+          gender={this.state.posts.sexo}
+          height={`${this.state.posts.altura} cm`}
+          age={this.state.posts.edad}
+          bloodType={this.state.posts.gpo_sanguineo}
+          imageURL={this.state.posts.imagen}
+        />
+        <div className="cards__container">
+          <div className="last__values--container">
+          <Link to="/appointmentDetail"><LastAppointment
+              date={moment(this.state.ultimate.fecha).format("DD MMM YY")}
+              onClick={() => {}}
+              drName={this.state.ultimate.Doctor}
+              medicine={this.state.ultimate.Medicamento}
+            /></Link>
+            <LastResults
+              date={moment(this.state.lab.fecha).format("DD MMM YY")}
+              value={this.state.lab.valor}
+              units={"mg/ul"}
+              parameter={this.state.lab.estudio}
+              onClick={() => {}}
             />
-            <div className="cards__container">
-            <div className="last__values--container" >
-              <LastAppointment
-                  date={"26 junio 2019"}
-                  onClick={ ()=> {}}
-                  drName={ "Dr Pollo"}
-                  medicine={"Paracetamol"}
-              />
-              <LastResults
-                  date={"28 junio 2019"}
-                  value={200}
-                  units={"mg/ul"}
-                  parameter={"Colesterol"}
-                  onClick={()=>{}}
-              />
+          </div>
+          <div className="container__row space__between ">
+            {isEmpty(this.state.calendar) === false  ? ( <CustomCalendar value={moment('2010-10-10', 'YYYY-MM-DD').value} data={this.state.calendar} />) : null }
+           
+            <div className="dashboard__buttons ">
+              <button>Nueva consulta</button>
+              <button>Nuevo Resultado</button>
             </div>
-              <div className="container__row space__between ">
-                <CustomCalendar   />
-                <div className="dashboard__buttons ">
-                  <button>Nueva consulta</button>
-                  <button>Nuevo Resultado</button>
-                </div>
-              </div>
-            </div>
+          </div>
         </div>
-  )
+      </div>
+    );
   }
 }
 
-
-export default Dashboard
+export default Dashboard;
