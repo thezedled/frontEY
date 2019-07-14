@@ -18,9 +18,6 @@ class WebcamCapture extends React.Component {
   capture = () => {
     const imageSrc = this.webcam.getScreenshot();
 
-    console.log(imageSrc);
-    
-
     const imgB64 = `data:image/png;base64,${imageSrc}`;
 
     this.setState({
@@ -41,13 +38,6 @@ class WebcamCapture extends React.Component {
       height: 720,
       facingMode: "user"
     };
-
-    console.log(
-      this.props.inputDrName,
-      this.props.inputMedicine,
-      this.props.inputSymptons,
-      this.props.inputDescription
-    );
 
     return (
       <div>

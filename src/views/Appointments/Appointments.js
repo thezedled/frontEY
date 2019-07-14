@@ -1,26 +1,60 @@
-import React, {PureComponent} from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+import { catalogs } from "../../utils/api";
 import LastAppointment from "../lastAppointment";
-
-
+import { Link } from "react-router-dom";
+import isNil from "lodash/isNil";
+import moment from "moment";
 
 class Appointments extends PureComponent {
-  render() {
-    const {appointments} = this.props
-    return (
-        <div className="appointments__container">
-      {appointments.map((appointment, index)=> (
 
-        <LastAppointment date={appointment.date} onClick={()=>{}} drName={appointment.drName}/>
-      ))}
-    </div>)
+  constructor(props) {
+    super(props);
+    this.state = {
+      catalogs: [],
+    };
+  }
+
+  componentDidMount() {
+    catalogs()
+      .then(res => {
+        if (isNil(res) === false) {
+          this.setState({
+            catalogs: res.data.result,
+            loading: false
+          });
+        }
+      })
+      .catch(err => console.log(err));
+  }
+
+
+
+  render() {
+    const { appointments } = this.props;
+    return (
+      <div className="appointments__container">
+        {this.state.catalogs.map((appointment, index) => {
+          console.log('appointment', appointment);
+          
+       return (
+          <Link to="/appointmentDetail">
+            <LastAppointment
+              date={appointment.Fecha}
+              onClick={() => {}}
+              drName={appointment.Doctor}
+              medicine={appointment.Medicamento}
+              idComponent={appointment._id}
+            />
+          </Link>
+        )})}
+      </div>
+    );
   }
 }
-
 
 Appointments.propTypes = {
   appointments: PropTypes.array.isRequired
 };
 
-
-export default Appointments
+export default Appointments;

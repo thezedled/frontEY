@@ -42,10 +42,6 @@ class NewAppointmentForm extends PureComponent {
 
   render() {
 
-
-console.log();
-
-
     const { TextArea } = Input;
     const { addPhoto, addMedicine } = this.props;
     return (
@@ -75,7 +71,6 @@ console.log();
           />
           <p>Medicines</p>
           {this.props.medicines.map((medicine, index) => {
-            console.log(medicine);
             return (
               <div
                 className="medicine__container"

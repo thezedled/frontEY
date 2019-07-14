@@ -9,8 +9,9 @@ class CustomCalendar extends Component {
 
   getListData = value => {
     this.listData = [];
-
+    
     this.props.data.map((item, index) => {
+
       switch (value.date()) {
         case item.dia:
           this.listData = [{ type: "warning" }];
@@ -47,7 +48,6 @@ class CustomCalendar extends Component {
           fullscreen={false}
           onPanelChange={this.onPanelChange}
           defaultValue={this.props.defaultValue}
-          onSelect={(e)=>{console.log(e)}}
         />
       </div>
     );

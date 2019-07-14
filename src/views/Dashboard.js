@@ -4,10 +4,12 @@ import PersonalInfo from "./PersonalInfo";
 import LastAppointment from "./lastAppointment";
 import LastResults from "./LastResults";
 import CustomCalendar from "./calendarSection/CustomCalendar";
-import { getPosts, ultimate, lab } from "../utils/api";
-import { isNullLiteral } from "@babel/types";
+import { getPosts, ultimate, lab, calendar } from "../utils/api";
+import { isNullLiteral, isEmptyStatement } from "@babel/types";
 import isNil from "lodash/isNil";
+import isEmpty from 'lodash/isEmpty';
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 class Dashboard extends PureComponent {
   constructor(props) {
@@ -16,11 +18,24 @@ class Dashboard extends PureComponent {
       posts: [],
       ultimate: [],
       lab: [],
+      calendar:[],
       loading: true
     };
   }
 
   componentDidMount() {
+    calendar()
+      .then(res => {
+        if (isNil(res) === false) {
+          this.setState({
+            calendar: res.data,
+            loading: false
+          });
+        }
+      })
+      .catch(err => console.log(err));
+
+
     lab()
       .then(res => {
         if (isNil(res) === false) {
@@ -56,6 +71,10 @@ class Dashboard extends PureComponent {
   }
 
   render() {
+
+    console.log('this.state.lab.fecha', typeof this.state.lab.fecha);
+    
+
     return (
       <div className="dashboard">
         <PersonalInfo
@@ -70,12 +89,12 @@ class Dashboard extends PureComponent {
         />
         <div className="cards__container">
           <div className="last__values--container">
-            <LastAppointment
+          <Link to="/appointmentDetail"><LastAppointment
               date={moment(this.state.ultimate.fecha).format("DD MMM YY")}
               onClick={() => {}}
-              drName={this.state.ultimate.doctor}
-              medicine={this.state.ultimate.medicamentos}
-            />
+              drName={this.state.ultimate.Doctor}
+              medicine={this.state.ultimate.Medicamento}
+            /></Link>
             <LastResults
               date={moment(this.state.lab.fecha).format("DD MMM YY")}
               value={this.state.lab.valor}
@@ -85,7 +104,8 @@ class Dashboard extends PureComponent {
             />
           </div>
           <div className="container__row space__between ">
-            <CustomCalendar value={moment('2010-10-10', 'YYYY-MM-DD').value} data={[{ dia: 16 }, { dia: 17 }, { dia: 18 }]} />
+            {isEmpty(this.state.calendar) === false  ? ( <CustomCalendar value={moment('2010-10-10', 'YYYY-MM-DD').value} data={this.state.calendar} />) : null }
+           
             <div className="dashboard__buttons ">
               <button>Nueva consulta</button>
               <button>Nuevo Resultado</button>

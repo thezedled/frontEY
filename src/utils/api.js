@@ -6,7 +6,7 @@ export function getPosts() {
 
 
   export function ultimate() {
-    return axios.get("https://delivery-proud-mongoose.mybluemix.net/api/consulta/gora921128hdfnmisNilr08");
+    return axios.get("https://delivery-proud-mongoose.mybluemix.net/api/consulta/gora921128hdfnmr08");
   }
 
 
@@ -19,6 +19,20 @@ export function getPosts() {
   export function consulta(data) {
     return axios.post("https://delivery-proud-mongoose.mybluemix.net/api/consulta", data);
   }
+
+
+
+  export function calendar(data) {
+    return axios.get("https://delivery-proud-mongoose.mybluemix.net/api/consultas/fechas/gora921128hdfnmr08");
+  }
+
+  export function catalogs(data) {
+    return axios.get("https://delivery-proud-mongoose.mybluemix.net/api/consulta/gora921128hdfnmr08/all");
+  }
+
+
+
+
 
 
 
