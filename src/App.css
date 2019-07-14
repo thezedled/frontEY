@@ -76,7 +76,6 @@
 .last__appointment--card {
   color: white;
   padding: 16px;
-  width: 90% !important;
   height: fit-content;
   border-radius: 8px;
   background: rgb(11,139,194);

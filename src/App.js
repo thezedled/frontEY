@@ -33,6 +33,7 @@ updatePathname = () => {
       pathname: window.location.pathname
     })
   }
+  this.forceUpdate()
 }
   componentWillMount() {
     this.updatePathname()
@@ -42,8 +43,8 @@ updatePathname = () => {
   }
   render() {
 
-
     const pathname = window.location.pathname;
+    console.log(pathname)
     return (
         <Router>
         <div className="main--container">

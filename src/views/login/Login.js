@@ -53,13 +53,14 @@ class Login extends PureComponent {
           })
             .then(res => {
               history.push("/");
+              this.forceUpdate()
             })
-            .catch(err => {
-              console.log(err);
-            });
+          .catch(err => {
+          console.log(err);
+        });
         }}
       >
-        Click Me!
+        Acceder
       </button>
     ));
 
