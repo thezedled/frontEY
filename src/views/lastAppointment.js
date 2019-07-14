@@ -1,6 +1,9 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-import "../styles/dashboard.css"
+import "../styles/dashboard.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {  faPills, faUserMd  } from '@fortawesome/free-solid-svg-icons'
+
 
 
 class LastAppointment extends PureComponent {
@@ -11,8 +14,8 @@ class LastAppointment extends PureComponent {
         <div onClick={onClick} className="last__appointment--card">
           <i><p>{date}</p></i>
           <div>
-            <p>{drName}</p>
-            <p>{medicine}</p>
+            <p><FontAwesomeIcon icon={faUserMd} size="2x"/>{drName}</p>
+            <p><FontAwesomeIcon icon={faPills} size="2x"/>{medicine}</p>
           </div>
         </div>
     )
