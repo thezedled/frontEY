@@ -19,6 +19,7 @@ class Appointments extends PureComponent {
     catalogs()
       .then(res => {
         if (isNil(res) === false) {
+          localStorage.setItem('idComponent', JSON.stringify(res.data.result._id));
           this.setState({
             catalogs: res.data.result,
             loading: false
@@ -35,7 +36,7 @@ class Appointments extends PureComponent {
     return (
       <div className="appointments__container">
         {this.state.catalogs.map((appointment, index) => {
-          console.log('appointment', appointment);
+          console.log('appointment', appointment._id);
           
        return (
           <Link to="/appointmentDetail">
