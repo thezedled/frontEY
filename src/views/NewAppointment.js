@@ -12,13 +12,12 @@ class NewAppointment extends PureComponent {
     };
   }
 
-  addPhoto = () => {};
-
   addMedicine = () => {};
 
   render() {
     return (
-      <div>
+      <div className="new__appointment--container">
+        <h2>Agrega una nueva consulta médica</h2>
         <NewAppointmentForm
           addMedicine={this.addMedicine}
           medicines={this.state.medicines}

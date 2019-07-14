@@ -95,21 +95,23 @@ class Dashboard extends PureComponent {
               drName={this.state.ultimate.Doctor}
               medicine={this.state.ultimate.Medicamento}
             /></Link>
-            <LastResults
+            <Link to="/newAppointment">
+              <div className="dashboard__buttons ">
+                <button>Agregar nueva consulta</button>
+              </div>
+            </Link>
+{/*            <LastResults
               date={moment(this.state.lab.fecha).format("DD MMM YY")}
               value={this.state.lab.valor}
               units={"mg/ul"}
               parameter={this.state.lab.estudio}
               onClick={() => {}}
-            />
+            />*/}
           </div>
           <div className="container__row space__between ">
             {isEmpty(this.state.calendar) === false  ? ( <CustomCalendar value={moment('2010-10-10', 'YYYY-MM-DD').value} data={this.state.calendar} />) : null }
            
-            <div className="dashboard__buttons ">
-              <button>Nueva consulta</button>
-              <button>Nuevo Resultado</button>
-            </div>
+
           </div>
         </div>
       </div>

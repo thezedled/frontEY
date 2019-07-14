@@ -48,7 +48,8 @@ class AppointmentsContainer extends PureComponent {
   }};
   render() {
     return (
-        <div className="appointments__container">
+        <div className="appointments__container--bg">
+          <h2>Historial clínico</h2>
           <Appointments appointments={this.state.appointments}/>
         </div>
     )
