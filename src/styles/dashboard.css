@@ -1,6 +1,7 @@
 .dashboard{
     display: flex;
     flex-direction: row;
+    width: 100%;
     padding: 100px;
 }
 .cards__container{
@@ -10,10 +11,10 @@
 .personal__info--card{
    background-color: white;
     border-radius: 8px;
-    width: 20%;
+    min-width: 30%;
     position: relative;
     padding: 100px 16px 40px;
-    box-shadow:0 4px 5px 0 rgba(48,48,49,0.14),0 1px 10px 0px rgba(48,48,49,0.12),0 2px 4px 0 rgba(48,48,49,0.2);
+    box-shadow:0 1px 1px 0 rgba(48,48,49,0.14),0 2px 1px -1px rgba(48,48,49,0.12),0 1px 3px 0 rgba(48,48,49,0.2);
 }
 
 .personal__info--card img{
