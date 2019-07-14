@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./dashboard.css"
+import "../styles/dashboard.css"
 //import './App.css';
 import 'antd/dist/antd.css';
 import PropTypes from "prop-types";
